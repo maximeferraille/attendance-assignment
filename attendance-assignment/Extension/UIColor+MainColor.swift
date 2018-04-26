@@ -11,10 +11,11 @@ import UIKit
 
 extension UIColor{
     struct MainColor {
-// Example
-//        struct Red {
-//            static let Firebrick = UIColor(red: 0.3333, green: 0.01, blue: 0.1, alpha: 0.7)
-//            static let Tomato = UIColor(red: 0.255, green: 0.99, blue: 0.71, alpha: 1)
-//        }
+        struct Purple {
+            static let mainPurple = UIColor(red:0.47, green:0.25, blue:0.83, alpha:1.0)
+        }
+        struct Green {
+            static let mainGreen = UIColor(red:0.42, green:0.84, blue:0.75, alpha:1.0)
+        }
     }
 }
