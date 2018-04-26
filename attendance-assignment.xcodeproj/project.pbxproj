@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		6D2FD62E2091F79A00C4A892 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2FD62D2091F79A00C4A892 /* AppDelegate.swift */; };
-		6D2FD6302091F79A00C4A892 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2FD62F2091F79A00C4A892 /* ViewController.swift */; };
+		6D2FD6302091F79A00C4A892 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2FD62F2091F79A00C4A892 /* LoginViewController.swift */; };
 		6D2FD6332091F79A00C4A892 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D2FD6312091F79A00C4A892 /* Main.storyboard */; };
 		6D2FD6352091F79A00C4A892 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D2FD6342091F79A00C4A892 /* Assets.xcassets */; };
 		6D2FD6382091F79A00C4A892 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D2FD6362091F79A00C4A892 /* LaunchScreen.storyboard */; };
 		6D2FD6432091F79A00C4A892 /* attendance_assignmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2FD6422091F79A00C4A892 /* attendance_assignmentTests.swift */; };
 		6D2FD64E2091F79A00C4A892 /* attendance_assignmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2FD64D2091F79A00C4A892 /* attendance_assignmentUITests.swift */; };
+		6D2FD65E2091FC5800C4A892 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2FD65D2091FC5800C4A892 /* InformationViewController.swift */; };
+		6D2FD6602091FC7100C4A892 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2FD65F2091FC7100C4A892 /* ScannerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,7 @@
 /* Begin PBXFileReference section */
 		6D2FD62A2091F79A00C4A892 /* attendance-assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "attendance-assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D2FD62D2091F79A00C4A892 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6D2FD62F2091F79A00C4A892 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6D2FD62F2091F79A00C4A892 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6D2FD6322091F79A00C4A892 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6D2FD6342091F79A00C4A892 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6D2FD6372091F79A00C4A892 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +49,8 @@
 		6D2FD6492091F79A00C4A892 /* attendance-assignmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "attendance-assignmentUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D2FD64D2091F79A00C4A892 /* attendance_assignmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = attendance_assignmentUITests.swift; sourceTree = "<group>"; };
 		6D2FD64F2091F79A00C4A892 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D2FD65D2091FC5800C4A892 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
+		6D2FD65F2091FC7100C4A892 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +101,9 @@
 		6D2FD62C2091F79A00C4A892 /* attendance-assignment */ = {
 			isa = PBXGroup;
 			children = (
+				6D2FD65C2091FB7800C4A892 /* Extension */,
+				6D2FD65B2091FB6F00C4A892 /* Controller */,
 				6D2FD62D2091F79A00C4A892 /* AppDelegate.swift */,
-				6D2FD62F2091F79A00C4A892 /* ViewController.swift */,
 				6D2FD6312091F79A00C4A892 /* Main.storyboard */,
 				6D2FD6342091F79A00C4A892 /* Assets.xcassets */,
 				6D2FD6362091F79A00C4A892 /* LaunchScreen.storyboard */,
@@ -123,6 +128,23 @@
 				6D2FD64F2091F79A00C4A892 /* Info.plist */,
 			);
 			path = "attendance-assignmentUITests";
+			sourceTree = "<group>";
+		};
+		6D2FD65B2091FB6F00C4A892 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6D2FD62F2091F79A00C4A892 /* LoginViewController.swift */,
+				6D2FD65D2091FC5800C4A892 /* InformationViewController.swift */,
+				6D2FD65F2091FC7100C4A892 /* ScannerViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6D2FD65C2091FB7800C4A892 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D2FD6302091F79A00C4A892 /* ViewController.swift in Sources */,
+				6D2FD6302091F79A00C4A892 /* LoginViewController.swift in Sources */,
 				6D2FD62E2091F79A00C4A892 /* AppDelegate.swift in Sources */,
+				6D2FD65E2091FC5800C4A892 /* InformationViewController.swift in Sources */,
+				6D2FD6602091FC7100C4A892 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
