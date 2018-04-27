@@ -122,6 +122,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
                 let alert = UIAlertController(title: "Succes", message: "You have done well", preferredStyle:   UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: { action in
+                    appDelegate?.isPresent = true
                     self.navigationController?.popViewController(animated: true) // Return to precedent view when user accept the alert
                 }))
                 self.present(alert, animated: true, completion: nil)
