@@ -31,5 +31,10 @@ class InformationViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    @IBAction func navigateToScanner(_ sender: Any) {
+        if let next = self.storyboard?.instantiateViewController(withIdentifier : "scanner") as?ScannerViewController {
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
 }

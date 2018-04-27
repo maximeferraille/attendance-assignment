@@ -10,9 +10,10 @@
 
 import UIKit
 import AVFoundation
+import CoreLocation
 
 // For the test we didn't have acces to an ios device, so we used a little "hack" : simulate the video preview layer with a static image from image gallery
-class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
+class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, CLLocationManagerDelegate {
     
     @IBOutlet var messageLabel:UILabel!
     
@@ -20,6 +21,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
+    
+    var beaconsArray = [Int]()
     
     private let qrCodeTypes = AVMetadataObject.ObjectType.qr // We just use 1 AVMetadataObject type : Qr code
     
@@ -94,11 +97,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let bodyObject = [
             "QRCodeData" : data,
             "date": "",
-            "beaconCollection": [
-                12,
-                44,
-                128
-            ],
+            "beaconCollection": beaconsArray,
             "Token": String(describing: userToken)
             ] as [String : Any]
         
@@ -154,5 +153,17 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             }
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion){
+        for b in beacons {
+            let major = Int(truncating: b.major)
+            let minor = Int16(truncating: b.minor)
+            
+            //Conform to the api we create a integer who concact major value in 32bits and minor value in 16bits
+            let beacon = Int(String(major) + String(minor))
+            beaconsArray.append(beacon!)
+        }
+    }
+
 }
 
