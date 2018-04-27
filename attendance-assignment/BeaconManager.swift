@@ -26,7 +26,7 @@ class BeaconManager : NSObject, CLLocationManagerDelegate {
         
         let status = CLLocationManager.authorizationStatus()
         
-        if status != .authorizedWhenInUse || status != .authorizedWhenInUse {
+        if status != .authorizedWhenInUse || status != .authorizedAlways {
             manager.requestWhenInUseAuthorization()
         }
     }
