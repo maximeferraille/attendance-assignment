@@ -64,13 +64,32 @@
                     <view key="view" contentMode="scaleToFill" id="Cg7-C5-AUA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sB-qP-o5w">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Rbh-kJ-800"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5X3-dU-7P7" firstAttribute="bottom" secondItem="9sB-qP-o5w" secondAttribute="bottom" id="Czv-MM-su3"/>
+                            <constraint firstItem="5X3-dU-7P7" firstAttribute="trailing" secondItem="9sB-qP-o5w" secondAttribute="trailing" id="F58-mZ-x3h"/>
+                            <constraint firstItem="5X3-dU-7P7" firstAttribute="leading" secondItem="9sB-qP-o5w" secondAttribute="leading" id="Q8S-Nu-RQJ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="5X3-dU-7P7"/>
                     </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="9sB-qP-o5w" id="Qbi-Le-dgU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D10-iK-kcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902" y="134"/>
+            <point key="canvasLocation" x="1901.5999999999999" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
