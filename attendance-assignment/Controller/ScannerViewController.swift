@@ -10,10 +10,9 @@
 
 import UIKit
 import AVFoundation
-import CoreLocation
 
 // For the test we didn't have acces to an ios device, so we used a little "hack" : simulate the video preview layer with a static image from image gallery
-class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate, CLLocationManagerDelegate {
+class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     @IBOutlet var messageLabel:UILabel!
     
@@ -22,7 +21,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
     
-    var beaconsArray = [Int]()
+    var beaconsArray : Array<Int>?
     
     private let qrCodeTypes = AVMetadataObject.ObjectType.qr // We just use 1 AVMetadataObject type : Qr code
     
@@ -86,7 +85,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func postQrCode(data: String) {
-        let u = URL(string: "http://www.thisismylink.com/postName.php")
+        let u = URL(string: "http://localhost/api/checkIn")
         var request = URLRequest(url: u!)
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -97,7 +96,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let bodyObject = [
             "QRCodeData" : data,
             "date": "",
-            "beaconCollection": beaconsArray,
+            "beaconCollection": beaconsArray!, // At this case we are sure beacons array is not empty
             "Token": String(describing: userToken)
             ] as [String : Any]
         
@@ -148,22 +147,11 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             qrCodeFrameView?.frame = qrCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                postQrCode(data: metadataObj.stringValue!)
-                messageLabel.text = metadataObj.stringValue
+                if beaconsArray != nil { // just in case, if a bug occured with InformationViewController who push scannerviewcontroller without beaconsArray
+                    postQrCode(data: metadataObj.stringValue!)
+                }
             }
         }
     }
-    
-    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion){
-        for b in beacons {
-            let major = Int(truncating: b.major)
-            let minor = Int16(truncating: b.minor)
-            
-            //Conform to the api we create a integer who concact major value in 32bits and minor value in 16bits
-            let beacon = Int(String(major) + String(minor))
-            beaconsArray.append(beacon!)
-        }
-    }
-
 }
 

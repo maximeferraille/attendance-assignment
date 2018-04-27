@@ -7,34 +7,41 @@
 //
 
 import UIKit
+import CoreLocation
 
-class InformationViewController: UIViewController {
-
+class InformationViewController: UIViewController, CLLocationManagerDelegate {
+    
+    var beaconsArray = [Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // We used ur custom beacon manager to ask authorization and monitor beacons
+        sharedBeaconManager.requestAuthorization()
+        sharedBeaconManager.monitorBeacons()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     @IBAction func navigateToScanner(_ sender: Any) {
-        if let next = self.storyboard?.instantiateViewController(withIdentifier : "scanner") as?ScannerViewController {
-            self.navigationController?.pushViewController(next, animated: true)
+        if beaconsArray.isEmpty {
+            if let next = self.storyboard?.instantiateViewController(withIdentifier : "scanner") as? ScannerViewController {
+                next.beaconsArray = beaconsArray
+                self.navigationController?.pushViewController(next, animated: true)
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion){
+        for b in beacons {
+            let major = Int(truncating: b.major)
+            let minor = Int16(truncating: b.minor)
+            
+            //Conform to the api we create a integer who concact major value in 32bits and minor value in 16bits
+            let beacon = Int(String(major) + String(minor))
+            beaconsArray.append(beacon!)
         }
     }
 }
