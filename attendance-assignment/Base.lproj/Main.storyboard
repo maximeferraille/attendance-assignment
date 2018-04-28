@@ -78,6 +78,7 @@
                     <connections>
                         <outlet property="email" destination="fBP-yv-S1e" id="h75-oh-gCf"/>
                         <outlet property="error" destination="ReN-Z8-ibN" id="oXd-3P-7jH"/>
+                        <outlet property="formContainer" destination="YRm-Fm-dgK" id="iyg-kg-7nu"/>
                         <outlet property="loginBtn" destination="eDa-z7-bZw" id="XIu-zl-RwK"/>
                         <outlet property="pass" destination="814-ja-jTg" id="c0M-UO-9Fh"/>
                     </connections>

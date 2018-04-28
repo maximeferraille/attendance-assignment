@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FontAwesome_swift
 
 class LoginViewController: UIViewController {
 
@@ -16,6 +17,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var error: UILabel!
     var animator : UIDynamicAnimator!
     var snap : UISnapBehavior!
+    @IBOutlet weak var formContainer: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,10 +31,16 @@ class LoginViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        email.placeholder = "Email"
-        pass.placeholder = "Password"
-        pass.isSecureTextEntry = true
-        error.textColor = UIColor.red
+//        email.placeholder = "couocu"
+//        email.leftViewMode = UITextFieldViewMode.always
+//        email.font = UIFont.fontAwesome(ofSize: 14)
+//        email.placeholder = String.fontAwesomeIcon(code: "fa-envelope")
+//        pass.placeholder = "Password"
+//        pass.font = UIFont.fontAwesome(ofSize: 20)
+//        pass.placeholder = String.fontAwesomeIcon(code: "fa-envelope")
+//        pass.isSecureTextEntry = true
+//        error.textColor = UIColor.red
+        self.view.backgroundColor = UIColor.MainColor.Purple.mainPurple
         
     }
     
@@ -46,37 +54,44 @@ class LoginViewController: UIViewController {
             return;
         }
 
-        let parameters = ["email": userEmail, "password": userPass]
-        let url = URL(string: "www.thisismylink.com/postName.php")!
-        let session = URLSession.shared
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST" //set http method as POST
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        print(request.httpBody);
+//        let parameters = ["email": userEmail, "password": userPass]
+//        let url = URL(string: "www.thisismylink.com/postName.php")!
+//        let session = URLSession.shared
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST" //set http method as POST
+//        do {
+//            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+//        } catch let error {
+//            print(error.localizedDescription)
+//        }
+//
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.addValue("application/json", forHTTPHeaderField: "Accept")
+//
+//        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
+//            guard error == nil else {
+//                return
+//            }
+//            guard let data = data else {
+//                return
+//            }
+//            do {
+//                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
+//                    let token = json["token"] as? String
+//                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                    appDelegate.userToken = token
+//                }
+//            } catch let error {
+//                print(error.localizedDescription)
+//            }
+//        })
+//        task.resume()
         
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            guard error == nil else {
-                return
-            }
-            guard let data = data else {
-                return
-            }
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    let token = json["token"] as? [[String: Any]]
-                }
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        })
-        task.resume()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.userToken = "MON SUPER TOKEEEEEEN"
+        print(appDelegate.userToken)
+        var point =  CGPoint(x: self.view.center.x, y: CGFloat(self.view.center.y - 350))
+        snapBehaviorsToPoint(point: point)
     }
     
     func snapBehaviorsToPoint(point:CGPoint){

@@ -1,0 +1,6 @@
+framework module Pods_attendance_assignmentTests {
+  umbrella header "Pods-attendance-assignmentTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
