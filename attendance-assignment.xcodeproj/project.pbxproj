@@ -17,6 +17,7 @@
 		6D2FD65E2091FC5800C4A892 /* InformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2FD65D2091FC5800C4A892 /* InformationViewController.swift */; };
 		6D2FD6602091FC7100C4A892 /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2FD65F2091FC7100C4A892 /* ScannerViewController.swift */; };
 		6D4A43062092098C005E9730 /* UIColor+MainColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D4A43052092098C005E9730 /* UIColor+MainColor.swift */; };
+		6D66D4372093539A00156F1B /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D66D4362093539A00156F1B /* BeaconManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		6D2FD65D2091FC5800C4A892 /* InformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewController.swift; sourceTree = "<group>"; };
 		6D2FD65F2091FC7100C4A892 /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		6D4A43052092098C005E9730 /* UIColor+MainColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+MainColor.swift"; sourceTree = "<group>"; };
+		6D66D4362093539A00156F1B /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				6D2FD6342091F79A00C4A892 /* Assets.xcassets */,
 				6D2FD6362091F79A00C4A892 /* LaunchScreen.storyboard */,
 				6D2FD6392091F79A00C4A892 /* Info.plist */,
+				6D66D4362093539A00156F1B /* BeaconManager.swift */,
 			);
 			path = "attendance-assignment";
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				6D2FD6302091F79A00C4A892 /* LoginViewController.swift in Sources */,
 				6D2FD62E2091F79A00C4A892 /* AppDelegate.swift in Sources */,
 				6D2FD65E2091FC5800C4A892 /* InformationViewController.swift in Sources */,
+				6D66D4372093539A00156F1B /* BeaconManager.swift in Sources */,
 				6D4A43062092098C005E9730 /* UIColor+MainColor.swift in Sources */,
 				6D2FD6602091FC7100C4A892 /* ScannerViewController.swift in Sources */,
 			);

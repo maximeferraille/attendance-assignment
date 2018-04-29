@@ -21,6 +21,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var qrCodeFrameView: UIView?
     
+    var beaconsArray : Array<Int>?
+    
     private let qrCodeTypes = AVMetadataObject.ObjectType.qr // We just use 1 AVMetadataObject type : Qr code
     
     override func viewDidLoad() {
@@ -83,7 +85,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
     
     func postQrCode(data: String) {
-        let u = URL(string: "http://www.thisismylink.com/postName.php")
+        let u = URL(string: "http://localhost/api/checkIn")
         var request = URLRequest(url: u!)
         request.httpMethod = "POST"
         request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
@@ -94,11 +96,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let bodyObject = [
             "QRCodeData" : data,
             "date": "",
-            "beaconCollection": [
-                12,
-                44,
-                128
-            ],
+            "beaconCollection": beaconsArray!, // At this case we are sure beacons array is not empty
             "Token": String(describing: userToken)
             ] as [String : Any]
         
@@ -149,8 +147,9 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             qrCodeFrameView?.frame = qrCodeObject!.bounds
             
             if metadataObj.stringValue != nil {
-                postQrCode(data: metadataObj.stringValue!)
-                messageLabel.text = metadataObj.stringValue
+                if beaconsArray != nil { // just in case, if a bug occured with InformationViewController who push scannerviewcontroller without beaconsArray
+                    postQrCode(data: metadataObj.stringValue!)
+                }
             }
         }
     }
