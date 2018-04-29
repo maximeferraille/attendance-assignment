@@ -91,7 +91,8 @@ class InformationViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     @IBAction func navigateToScanner(_ sender: Any) {
-        if !beaconsArray.isEmpty {
+        beaconsArray = [4294902141,4294902142,4294902144] // We fake the beaconsArray because we don't have iPhone to test beacon
+        if !beaconsArray.isEmpty { // If beaconsarray is empty we are not in the region
             if let next = self.storyboard?.instantiateViewController(withIdentifier : "scanner") as? ScannerViewController {
                 next.beaconsArray = beaconsArray
                 self.navigationController?.pushViewController(next, animated: true)
