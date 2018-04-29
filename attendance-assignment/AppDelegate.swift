@@ -42,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     var isPresent : Bool = false
+    var currentRoom : String?
     var userToken : String?
 }
 
