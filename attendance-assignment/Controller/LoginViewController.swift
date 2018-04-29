@@ -52,7 +52,7 @@ class LoginViewController: UIViewController {
         }
 
         let parameters = ["email": userEmail, "password": userPass]
-        let url = URL(string: "www.thisismylink.com/postName.php")!
+        let url = URL(string: "www.thisismylink.com/postName.php")! // URL to test post method
         let session = URLSession.shared
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -85,6 +85,8 @@ class LoginViewController: UIViewController {
         })
         task.resume()
         
+        
+        // We don't receive any api so we fake the login with a result...
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.userToken = "MON SUPER TOKEEEEEEN"
         print(appDelegate.userToken)
