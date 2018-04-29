@@ -13,8 +13,8 @@ let sharedBeaconManager = BeaconManager()
 
 class BeaconManager : NSObject, CLLocationManagerDelegate {
     let manager = CLLocationManager()
-    let proximityUUID = UUID(uuidString: "F2A74FC4-7625-44DB-9B08-CB7E130B2029")
-    let beaconID = "com.attendanceAssignment.BeaconRegion"
+    let proximityUUID = UUID(uuidString: "F2A74FC4-7625-44DB-9B08-CB7E130B2029") // The UUID is the same for ur beacon
+    let beaconID = "com.attendanceAssignment.BeaconRegion" // we decided to put the same ID to all beacon
     
     override init() {
         super.init()
